@@ -5,3 +5,7 @@ page = Blueprint("page", __name__)
 def home():
     return render_template('landing.html')
 
+@page.route('/')
+def profile():
+    return render_template('profile.html')
+
