@@ -9,9 +9,9 @@ DB_name = "database.db"
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'lololol'
-    app.config['SQL_ALCHEMY_DATABASE_URI'] =f'sqlite://{DB_name}'
+    app.config['SQLALCHEMY_DATABASE_URI'] =f'sqlite://{os.path.join(app.instance_path, DB_name)}'
     
-    db.init(app)
+    db.init_app(app)
     
     from .page import page
     

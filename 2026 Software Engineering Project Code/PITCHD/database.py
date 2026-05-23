@@ -11,8 +11,8 @@ class user(db.Model, UserMixin):
     date_of_birth = db.Column(db.Date)
     
 
-class Task (db.model):
+class Task (db.Model):
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(32))
     description = db.Column(db.String(500))
-    user_id = db.Column(db.Inteher, db.ForeignKey('user.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
