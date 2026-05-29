@@ -10,6 +10,7 @@ class User(db.Model, UserMixin):
     description = db.Column(db.String(500))
     password = db.Column(db.String(150))
     date_of_birth = db.Column(db.Date)
+    is_freelancer = db.Column(db.Boolean, default=True, nullable=False)
     
 
 class Task (db.Model):

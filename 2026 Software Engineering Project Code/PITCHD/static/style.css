@@ -104,6 +104,7 @@ button { cursor: pointer;}
   font-weight: 600;
   color: var(--color-black);
   line-height: 1;
+  font-family: 'Poppins', sans-serif;
 }
 
 .navbar__links {
@@ -121,6 +122,7 @@ button { cursor: pointer;}
   white-space: nowrap;
   transition: opacity 0.2s;
   padding-top: 15px;
+  font-family: 'Arial', sans-serif;
 }
 .navbar__links a:hover { opacity: 1; }
 .navbar__links .navbar__link--active {

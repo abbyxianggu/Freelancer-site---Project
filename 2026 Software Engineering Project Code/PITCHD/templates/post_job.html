@@ -6,7 +6,28 @@
 <style>
 #post_job_nav{
   font-weight:bold;
+  border-bottom: 2px solid #8800ff;
 }
 </style>
 <h1 style="color:#8800ff; text-align:center;">Post a Job</h1>
+
+    <div style="display: flex; justify-content: center; align-items: center;">
+    <!---->
+      
+
+
+    <form class="card" style="justify-content: center;" method="POST">
+    <label for="name">name</label>
+    <input type="text" id="name" placeholder="Name" name="name"/>
+    <label for="description">Description</label>
+
+    <textarea type="text" id="find_freelancer" placeholder="Change your description here:" name="description" rows="10" cols="50"></textarea>
+
+    <button type="submit" style="width: 100%; padding: 0.7rem; background: #6c63ff; color: white; border: none; border-radius: 8px; font-size: 1rem;">Submit</button>
+  </form>
+</div>
+
+  </form>
+</div>
+
 {% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block main %}
+<link rel="stylesheet" href="{{ url_for('static', filename='sign_up.css') }}">
+<style>
+#profile_nav{
+  font-weight:bold;
+  border-bottom: 2px solid #8800ff;
+}
+</style>
+</style>
+<h1 style="color:#8800ff; text-align:center; margin-top:70px;">Profile</h1>
+    <p>{{ user.username }}</p>
+    <p>{{ user.email }}</p>
+    <div style="display: flex; justify-content: center; align-items: center;">
+    
+<form class="card" style="justify-content: center;" method="POST">
+    <label for="description">Description</label>
+    <label for="freelancer">Become a freelancer?</label>
+    <input type="checkbox" name="freelancer" placeholder={{ "on" if user.is_freelancer else ""}}/>
+    <textarea type="text" id="description" placeholder="Change your description here:" name="description" rows="10" cols="50">{{ user.description }}</textarea>
+    <button type="submit" style="width: 100%; padding: 0.7rem; background: #6c63ff; color: white; border: none; border-radius: 8px; font-size: 1rem;">Update Profile</button>
+  </form>
+</div>
+
+  </form>
+</div>
+
+
+{% endblock %}

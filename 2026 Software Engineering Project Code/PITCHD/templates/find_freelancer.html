@@ -6,7 +6,17 @@
 <style>
 #find_freelancer_nav{
   font-weight:bold;
+  border-bottom: 2px solid #8800ff;
 }
 </style>
 <h1 style="color:#8800ff; text-align:center;">Find a freelancer</h1>
+
+{% for user in users %}
+<p>{{ user.username }}</p>
+<p>{{ user.description }}</p>
+
+{% endfor %}
+    <!---->
+
+  
 {% endblock %}

@@ -2,7 +2,6 @@
 <html>
 <title>{% block title %} BASE {% endblock %}</title>
 
-<!--Link to BOOTSTRAP and ICON CDN stuff, not super important to know-->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
@@ -22,9 +21,16 @@
         <li><a href="/" id="home_nav">Home</a></li>
         <li><a href="/find_work" id="find_work_nav">Find work</a></li>
         <li><a href="/find_freelancer" id="find_freelancer_nav">Find Freelancers</a></li>
+        {% if user.is_authenticated%}
+        <li><a href="/post_job" id="post_job_nav">Post Job</a></li>
+        <li><a href="/profile" id="profile_nav">Profile</a></li>
+        <li><a href="/logout" id="logout_nav">Log Out</a></li>
+        {% else %}
         <li><a href="/login" id="login_nav">Log In</a></li>
         <li><a href="/sign_up" id="signup_nav">Sign Up</a></li>
-        <li><a href="/post_job" id="post_job_nav">Post Job</a></li>
+        {% endif %}
+  
+
       </ul>
 
       <button class="navbar__cta" href="postjob">Post a project</button>
