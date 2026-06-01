@@ -85,6 +85,11 @@ def findfreelancer():
 
 @authentication.route("/find_work")
 def findwork():
+<<<<<<< HEAD
     return render_template('find_work.html', user=current_user)
 
 
+=======
+    return render_template('find_work.html')
+#guhh
+>>>>>>> 576da9563d9bd157625ab7749ca1be24708e3050
