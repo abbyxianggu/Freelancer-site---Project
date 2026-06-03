@@ -12,11 +12,8 @@ def home():
 def profile():
     if request.method == "POST":
         current_user.description = request.form["description"]
-        is_freelancer = False
-        if request.form["freelancer"] != None:
-            is_freelancer = True
+        is_freelancer = "freelancer" in request.form
         current_user.is_freelancer = is_freelancer
-        
         db.session.commit()
         return redirect(url_for("page.profile"))
     return render_template('profile.html', user=current_user)

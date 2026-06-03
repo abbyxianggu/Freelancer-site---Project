@@ -34,7 +34,6 @@ def create_app():
         return User.query.get(int(id))
     return app
 
-
 def create_database(app):
     if not os.path.exists(os.path.join(app.instance_path, DB_name)):
         with app.app_context():

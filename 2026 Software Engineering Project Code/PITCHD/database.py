@@ -10,11 +10,13 @@ class User(db.Model, UserMixin):
     description = db.Column(db.String(500))
     password = db.Column(db.String(150))
     date_of_birth = db.Column(db.Date)
-    is_freelancer = db.Column(db.Boolean, default=True, nullable=False)
+    is_freelancer = db.Column(db.Boolean, default=False, nullable=False)
     
 
 class Task (db.Model):
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(32))
     description = db.Column(db.String(500))
+    occupied = db.Column(db.Boolean, default=False, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    worker_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)

@@ -19,12 +19,9 @@
 <form class="card" style="justify-content: center;" method="POST">
     <label for="description">Description</label>
     <label for="freelancer">Become a freelancer?</label>
-    <input type="checkbox" name="freelancer" placeholder={{ "on" if user.is_freelancer else ""}}/>
+    <input type="checkbox" name="freelancer" {{ "checked" if user.is_freelancer else "" }}/>
     <textarea type="text" id="description" placeholder="Change your description here:" name="description" rows="10" cols="50">{{ user.description }}</textarea>
     <button type="submit" style="width: 100%; padding: 0.7rem; background: #6c63ff; color: white; border: none; border-radius: 8px; font-size: 1rem;">Update Profile</button>
-  </form>
-</div>
-
   </form>
 </div>
 

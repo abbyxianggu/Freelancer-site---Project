@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
-from .database import User
+from .database import User, Task
 from .import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required, logout_user, current_user
@@ -49,11 +49,12 @@ def signup():
             flash("Email already exists", category='error')
         else:
             flash("Account created!", category='success')
+            """
             print(request.form["is_freelancer"])
             is_freelancer = False
             if request.form["is_freelancer"] != "None":
                 is_freelancer = True
-               
+            """
             new_user = User(
                 username = request.form["username"],
                 firstname = request.form["firstname"],
@@ -64,27 +65,37 @@ def signup():
                 date_of_birth = datetime.datetime.strptime(request.form["dob"], "%Y-%m-%d").date(),
                 is_freelancer = False
             )
-            
             db.session.add(new_user)
             db.session.commit()
             login_user(new_user, remember=True)
             return redirect(url_for("page.profile"))
-            
         # else we just enter the request
     
     return render_template('sign_up.html', user=current_user)
 
-@authentication.route("/post_job")
+@authentication.route("/post_job", methods=["GET", "POST"])
 def postjob():
-    users=User.query.all()
-    return render_template('post_job.html', user=current_user, users=users)
+    if request.method == "POST":
+        name = request.form["name"]
+        description = request.form["description"]
+        new_task = Task(
+            name = name,
+            description = description,
+            occupied = False,
+            # Follow poster's id
+            user_id = current_user.id
+        )
+        db.session.add(new_task)
+        db.session.commit()
+        flash("Posted job!", category="success")
+    return render_template('post_job.html', user=current_user)
 
 @authentication.route("/find_freelancer")
 def findfreelancer():
-    return render_template('find_freelancer.html', user=current_user)
+    users = User.query.filter_by(is_freelancer=True).all()
+    return render_template('find_freelancer.html', user=current_user, users=users)
 
 @authentication.route("/find_work")
 def findwork():
-    return render_template('find_work.html', user=current_user)
-
-
+    tasks = Task.query.all()
+    return render_template('find_work.html', user=current_user, tasks = tasks)

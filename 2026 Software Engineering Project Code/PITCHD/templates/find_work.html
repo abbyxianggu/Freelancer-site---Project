@@ -10,4 +10,25 @@
 }
 </style>
 <h1 style="color:#8800ff; text-align:center;">Find work</h1>
+<!--NEWWWWWWWWWWWWWWWWWWWW-->
+{% for task in tasks if (task.occupied == False)%}
+<p>Task ID {{ task.id }}</p>
+<p>Task Name {{ task.name }}</p>
+<p>Task description {{ task.description }}</p>
+<hr>
+<!--this is the line-->
+{% endfor %}
+
+<form method="POST"> 
+    <input 
+    type="number" 
+    id="user-integer" 
+    name="user_integer" 
+    step="1" 
+    required
+    >
+    <button type="submit" style="padding: 0.5rem 1rem; background:#6c63ff; color:white; border:none; border-radius:8px; cursor:pointer;">
+        Take Job
+    </button>
+</form>
 {% endblock %}
