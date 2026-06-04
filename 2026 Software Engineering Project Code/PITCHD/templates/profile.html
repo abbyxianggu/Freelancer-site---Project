@@ -24,6 +24,19 @@
     <button type="submit" style="width: 100%; padding: 0.7rem; background: #6c63ff; color: white; border: none; border-radius: 8px; font-size: 1rem;">Update Profile</button>
   </form>
 </div>
-
-
+<hr> 
+<h1>Tasks Posted:</h1>
+{% for task in tasks_posted %}
+<p>Task ID {{ task.id }}</p>
+<p>Task Name {{ task.name }}</p>
+<p>Task description {{ task.description }}</p>
+<hr>
+{% endfor %}
+<h1>Tasks Accepted:</h1>
+{% for task in tasks_accepted %}
+<p>Task ID {{ task.id }}</p>
+<p>Task Name {{ task.name }}</p>
+<p>Task description {{ task.description }}</p>
+<hr>
+{% endfor %}
 {% endblock %}

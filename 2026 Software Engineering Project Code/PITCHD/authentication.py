@@ -90,12 +90,25 @@ def postjob():
         flash("Posted job!", category="success")
     return render_template('post_job.html', user=current_user)
 
+@login_required
 @authentication.route("/find_freelancer")
 def findfreelancer():
     users = User.query.filter_by(is_freelancer=True).all()
-    return render_template('find_freelancer.html', user=current_user, users=users)
+    return render_template('find_freelancer.html', users=users, user=current_user)
 
-@authentication.route("/find_work")
+@login_required
+@authentication.route("/find_work", methods=["GET", "POST"])
 def findwork():
+    if request.method=="POST":
+        task_id = request.form["task_id"]
+        task = Task.query.filter_by(id=task_id).first()
+        if task.occupied:
+            flash("Task already occupied", category="error")
+        else:
+            task.occupied = True
+            task.worker_id = current_user.id
+            db.session.commit()
+            flash("Task accepted!", category="success")
+            
     tasks = Task.query.all()
     return render_template('find_work.html', user=current_user, tasks = tasks)

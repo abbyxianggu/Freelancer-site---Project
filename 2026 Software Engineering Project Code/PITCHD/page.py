@@ -1,6 +1,8 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import login_required, current_user
-from.import db
+from .import db
+from .database import User, Task
+
 page = Blueprint("page", __name__)
 
 @page.route('/')
@@ -16,7 +18,9 @@ def profile():
         current_user.is_freelancer = is_freelancer
         db.session.commit()
         return redirect(url_for("page.profile"))
-    return render_template('profile.html', user=current_user)
+    tasks_accepted = Task.query.filter_by(worker_id = current_user.id)
+    tasks_posted = Task.query.filter_by(user_id = current_user.id)
+    return render_template('profile.html', user=current_user, tasks_accepted=tasks_accepted, tasks_posted=tasks_posted)
 
 
 

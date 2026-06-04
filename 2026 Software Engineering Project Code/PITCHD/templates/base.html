@@ -19,9 +19,9 @@
 
       <ul class="navbar__links" id="nav-links">
         <li><a href="/" id="home_nav">Home</a></li>
-        <li><a href="/find_work" id="find_work_nav">Find work</a></li>
-        <li><a href="/find_freelancer" id="find_freelancer_nav">Find Freelancers</a></li>
         {% if user.is_authenticated%}
+        <li><a href="/find_freelancer" id="find_freelancer_nav">Find Freelancers</a></li>
+        <li><a href="/find_work" id="find_work_nav">Find work</a></li>
         <li><a href="/post_job" id="post_job_nav">Post Job</a></li>
         <li><a href="/profile" id="profile_nav">Profile</a></li>
         <li><a href="/logout" id="logout_nav">Log Out</a></li>

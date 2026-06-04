@@ -16,7 +16,7 @@ class User(db.Model, UserMixin):
 class Task (db.Model):
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(32))
-    description = db.Column(db.String(500))
+    description = db.Column(db.String(1000))
     occupied = db.Column(db.Boolean, default=False, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     worker_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)
