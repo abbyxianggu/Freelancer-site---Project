@@ -541,19 +541,6 @@ button { cursor: pointer;}
       white-space: nowrap;
     }
  
-    .categories__more {
-      background: var(--color-purple);
-      color: var(--color-white);
-      font-size: var(--fs-24);
-      font-weight: 600;
-      font-family: 'Poppins', sans-serif;
-      border: none;
-      border-radius: var(--radius-10);
-      padding: var(--sp-20) 30px;
-      margin-top: 48px;
-      white-space: nowrap;
-    }
-    .categories__more:hover { opacity: 0.9; }
  
     /* ══════════════════════════════════
        PORTFOLIOS
@@ -652,81 +639,7 @@ button { cursor: pointer;}
     .dot--active { width: 82px; background: var(--color-purple); }
     .dot--inactive { width: 47px; background: var(--color-grey); }
  
-    /* ══════════════════════════════════
-       NEWSLETTER
-    ══════════════════════════════════ */
-    .newsletter {
-      margin-top: 100px;
-      background: var(--color-newsletter-bg);
-      height: 561px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0;
-      overflow: hidden;
-      position: relative;
-    }
-    .newsletter__header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 5px;
-      margin-bottom: 60px;
-    }
-    .newsletter__title {
-      font-size: var(--fs-56);
-      font-weight: 500;
-      font-family: 'Poppins', sans-serif;
-      color: var(--color-dark);
-      line-height: normal;
-      white-space: nowrap;
-    }
-    .newsletter__subtitle {
-      font-size: var(--fs-24);
-      font-weight: 400;
-      font-family: 'Poppins', sans-serif;
-      color: var(--color-grey);
-      line-height: normal;
-      white-space: nowrap;
-    }
-    .newsletter__form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 24px;
-      width: 100%;
-    }
-    .newsletter__input-wrap {
-      background: var(--color-white);
-      box-shadow: var(--shadow-newsletter-input);
-      border-radius: var(--radius-10);
-      padding: 20px 182px;
-      display: flex;
-      align-items: center;
-    }
-    .newsletter__input {
-      border: none;
-      outline: none;
-      font-size: var(--fs-24);
-      font-family: 'Poppins', sans-serif;
-      color: var(--color-grey);
-      background: transparent;
-      white-space: nowrap;
-    }
-    .newsletter__input::placeholder { color: var(--color-grey); }
-    .newsletter__btn {
-      background: var(--color-purple);
-      color: var(--color-white);
-      font-size: var(--fs-24);
-      font-weight: 600;
-      font-family: 'Poppins', sans-serif;
-      border: none;
-      border-radius: var(--radius-10);
-      padding: var(--sp-20) 89px;
-      white-space: nowrap;
-    }
-    .newsletter__btn:hover { opacity: 0.9; }
+
       
   /* ══════════════════════════════════
      PROFILE

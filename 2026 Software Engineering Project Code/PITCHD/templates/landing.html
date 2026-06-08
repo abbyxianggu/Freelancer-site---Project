@@ -15,7 +15,7 @@
       <h1 class="hero__title">Are you looking for Freelancers?</h1>
       <p class="hero__subtitle">Hire Great Freelancers, Fast. PITCHD helps you hire elite freelancers at a moment's notice</p>
       <div class="hero__actions">
-        <button class="hero__hire-btn">Hire a freelancer</button>
+        <a class="hero__hire-btn" href="/find_freelancer">Hire a freelancer</a>
         <div class="hero__search" role="search">
           <input type="text" placeholder="Search freelance work" aria-label="Search freelance work" />
           <div class="hero__search-icon-wrap">
@@ -208,9 +208,6 @@
     </div>
   </div>
  
-  <button class="categories__more">More Categories</button>
-</section>
- 
 <!-- ── PORTFOLIOS ── -->
 <section class="portfolios" aria-label="Featured portfolios">
   <div class="portfolios__header">
@@ -278,31 +275,6 @@
     </article>
  
   </div>
- 
-  <!-- Pagination dots -->
-  <div class="portfolios__dots" role="tablist" aria-label="Portfolio pages">
-    <div class="dot dot--active" role="tab" aria-selected="true" aria-label="Page 1"></div>
-    <div class="dot dot--inactive" role="tab" aria-selected="false" aria-label="Page 2"></div>
-    <div class="dot dot--inactive" role="tab" aria-selected="false" aria-label="Page 3"></div>
-  </div>
 </section>
- 
-<!-- ── NEWSLETTER ── -->
-<section class="newsletter" aria-label="Newsletter subscription">
-  <div class="newsletter__header">
-    <h2 class="newsletter__title">Newsletter Subscription</h2>
-    <p class="newsletter__subtitle">Subscribe to our newsletter to get new freelance work and projects</p>
-  </div>
-  <div class="newsletter__form">
-    <div class="newsletter__input-wrap">
-      <input
-        class="newsletter__input"
-        type="email"
-        placeholder="Enter your email address"
-        aria-label="Email address for newsletter" />
-    </div>
-    <button class="newsletter__btn">Subscribe</button>
-  </div>
-</section>
- 
+
 {% endblock %}

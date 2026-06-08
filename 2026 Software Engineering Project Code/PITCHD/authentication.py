@@ -49,12 +49,8 @@ def signup():
             flash("Email already exists", category='error')
         else:
             flash("Account created!", category='success')
-            """
-            print(request.form["is_freelancer"])
-            is_freelancer = False
-            if request.form["is_freelancer"] != "None":
-                is_freelancer = True
-            """
+     
+            
             new_user = User(
                 username = request.form["username"],
                 firstname = request.form["firstname"],
@@ -112,3 +108,14 @@ def findwork():
             
     tasks = Task.query.all()
     return render_template('find_work.html', user=current_user, tasks = tasks)
+
+@login_required
+@authentication.route("delete/<task_id>", methods=["POST"])
+def delete(task_id):
+    Task.query.filter_by(id= int(task_id)).delete()
+    db.session.commit()
+flash("Task deleted!", category="success")
+redirect(url_for("page.profile"))
+    
+    
+    
