@@ -1,35 +1,46 @@
 {% extends 'base.html' %}
-
-{% block title %}Post Job {% endblock %}
-
+ 
+{% block title %}Post Job{% endblock %}
+ 
 {% block main %}
 <style>
-#post_job_nav{
-  font-weight:bold;
+#post_job_nav {
+  font-weight: bold;
   border-bottom: 2px solid #8800ff;
 }
 </style>
-<h1 style="color:#8800ff; text-align:center;">Post a Job</h1>
-
-    <div style="display: flex; justify-content: center; align-items: center;">
-    <!---->
-
-    <form class="card" style="justify-content: center;" method="POST">
-    <label for="name">name</label>
-    <input type="text" id="name" placeholder="Name" name="name"/>
-    <label for="description">Description</label>
-
-    <textarea type="text" id="find_freelancer" placeholder="Change your description here:
-    Payment:
-    Email:
-    
-    " name="description" rows="10" cols="50"></textarea>
-
-    <button type="submit" style="width: 100%; padding: 0.7rem; background: #6c63ff; color: white; border: none; border-radius: 8px; font-size: 1rem;">Submit</button>
-  </form>
+ 
+<div class="post-job-page">
+ 
+  <div class="post-job-header">
+    <p class="post-job-header__label">Got a project in mind?</p>
+    <h1 class="post-job-header__title">Post a <span>Job</span></h1>
+  </div>
+ 
+  <div class="post-job-card">
+    <form method="POST">
+      <div class="post-job-field">
+        <label for="name">Job title</label>
+        <input type="text" id="name" name="name" placeholder="e.g. Logo design for jewellery brand" />
+      </div>
+      <div class="post-job-field">
+        <label for="find_freelancer">Description</label>
+        <textarea id="find_freelancer" name="description" rows="10"
+          placeholder="Change your description here:&#10;Payment:&#10;Email:"></textarea>
+      </div>
+      <button type="submit" class="post-job-submit">Post Job</button>
+    </form>
+  </div>
+ 
+  <div class="post-job-tips">
+    <p class="post-job-tips__title">Tips for a great listing</p>
+    <ul class="post-job-tips__list">
+      <li>Be specific about what you need — the more detail, the better the applicants</li>
+      <li>Include your budget or payment range in the description</li>
+      <li>Add your preferred contact email so freelancers can reach you</li>
+      <li>Mention any deadlines or timeframes upfront</li>
+    </ul>
+  </div>
+ 
 </div>
-
-  </form>
-</div>
-
 {% endblock %}

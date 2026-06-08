@@ -1,23 +1,24 @@
-
-.card { 
-    background: white; 
-    padding: 2rem; 
-    border-radius: 12px; 
-    box-shadow: 0 2px 12px rgba(0,0,0,1);
-     width: 100%;
-    max-width: 360px; 
-}
-
-h2 { 
-    font-size: 1.4rem; 
-    margin-bottom: 1.5rem; 
-    text-align: center; 
-}
+.signup_card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.8);
+    width: 500px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  
+  .signup_card:hover {
+    border-color: rgba(160, 51, 255, 0.5);
+    box-shadow: 0 2px 12px rgba(136,0,255,0.5);
+    transform: translateY(-3px);
+  }
 
 input { 
-    width: 100%; 
+    width: 100%;   
+    background: rgba(255,255,255,0.05);
     padding: 0.6rem 0.8rem; 
-    border: 1px solid #ddd; 
+    border: 1px solid rgba(255,255,255,0.1); 
     border-radius: 8px; 
     font-size: 0.95rem; 
     margin-bottom: 1rem; 

@@ -10,26 +10,25 @@
   border-bottom: 2px solid #8800ff;
 }
 </style>
-<h1 style="color:#8800ff; text-align:center; margin-top: 70px; ">Signup</h1>
 <div style="display: flex; justify-content: center; align-items: center;">
-  <form class="card" style="justify-content: center;" method="POST">
-    <h2>Create an account</h2>
-    <label for="username">username</label>
-    <input type="text" id="username" placeholder="Username" name="username"/>
+  <form class="signup_card" style="justify-content: center; color: #EFEFEF ; margin-top:80px; font-family: 'Poppins', sans-serif;" method="POST">
+    <h2 style="color:#8800ff; text-align:center; margin-bottom: 2rem;">Create An Account</h2>
+    <label for="username">Username</label>
+    <input type="text" style= "color: #FFFF; margin-top:10px;" id="username" placeholder="Username" name="username"/>
     <label for="firstname">Firstname</label>
-    <input type="text" id="firstname" placeholder="John" name="firstname"/>
+    <input type="text" style= "color: #FFFF; margin-top:10px;" id="firstname" placeholder="John" name="firstname"/>
     <label for="lastname">Lastname</label>
-    <input type="text" id="lastname" placeholder="Doe" name="lastname"/>
+    <input type="text" style= "color: #FFFF; margin-top:10px;" id="lastname" placeholder="Doe" name="lastname"/>
     <label for="dob">Date of Birth</label>
-    <input type="date" id="dob" name="dob" min="1999-12-31" max="2026-12-31">
+    <input type="date" style= "color: #FFFF; margin-top:10px;" id="dob" name="dob" min="1999-12-31" max="2026-12-31">
     <label for="email">Email</label>
-    <input type="email" id="email" placeholder="you@example.com" name="email"/>
+    <input type="email" style= "color: #FFFF; margin-top:10px;" id="email" placeholder="you@example.com" name="email"/>
     <label for="password">Password</label>
-    <input type="password" id="password" placeholder="••••••••" name="password"/>
+    <input type="password" style= "color: #FFFF; margin-top:10px;" id="password" placeholder="••••••••" name="password"/>
     <label for="confirm">Confirm password</label>
-    <input type="password" id="confirm" placeholder="••••••••" name="confirm_password"/>
-    <button type="submit" style="width: 100%; padding: 0.7rem; background: #6c63ff; color: white; border: none; border-radius: 8px; font-size: 1rem;">Sign up</button>
-    <p>Already have an account? <a href="login" style="color:#8800ff; text-align:center;margin-top:2rem;">Log in</a></p>
+    <input type="password" style= "color: #FFFF; margin-top:10px;" id="confirm" placeholder="••••••••" name="confirm_password"/>
+    <button type="submit" style="margin-top:10px; width: 100%; padding: 0.7rem; background: #6c63ff; color: white; border: none; border-radius: 8px; font-size: 1rem;">Sign up</button>
+    <p style="margin-top:10px;">Already have an account? <a href="login" style="color:#8800ff; text-align:center;margin-top:2rem;">Log in</a></p>
   </form>
 </div>
 {% endblock %}

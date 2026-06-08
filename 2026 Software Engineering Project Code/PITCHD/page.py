@@ -16,6 +16,10 @@ def profile():
         current_user.description = request.form["description"]
         is_freelancer = "freelancer" in request.form
         current_user.is_freelancer = is_freelancer
+        current_user.contact_email = request.form.get("contact_email", "")
+        current_user.contact_phone = request.form.get("contact_phone", "")
+        current_user.payment_method = request.form.get("payment_method", "")
+        current_user.payment_details = request.form.get("payment_details", "")
         db.session.commit()
         return redirect(url_for("page.profile"))
     tasks_accepted = Task.query.filter_by(worker_id = current_user.id)

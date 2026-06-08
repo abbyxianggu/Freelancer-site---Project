@@ -11,6 +11,10 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(150))
     date_of_birth = db.Column(db.Date)
     is_freelancer = db.Column(db.Boolean, default=False, nullable=False)
+    contact_email = db.Column(db.String(150))
+    contact_phone = db.Column(db.String(20))
+    payment_method = db.Column(db.String(100))
+    payment_details = db.Column(db.String(200))
     
 
 class Task (db.Model):

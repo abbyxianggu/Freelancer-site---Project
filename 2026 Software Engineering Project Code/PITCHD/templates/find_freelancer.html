@@ -9,12 +9,74 @@
   border-bottom: 2px solid #8800ff;
 }
 </style>
-<h1 style="color:#8800ff; text-align:center;">Find a freelancer</h1>
-
-{% for user in users%}
-<p>{{ user.username }}</p>
-<p>{{ user.description }}</p>
-
-{% endfor %}
-  
+<div class="find-freelancer-page">
+ 
+  <div class="find-freelancer-header">
+    <p class="find-freelancer-header__label">Browse available talent</p>
+    <h1 class="find-freelancer-header__title">Find <span>Freelancers</span></h1>
+  </div>
+ 
+  <div class="freelancer-grid">
+    {% for user in users %}
+    <article class="freelancer-card">
+ 
+      <!-- Top: avatar + name + badge -->
+      <div class="freelancer-card__top">
+        <div class="freelancer-card__avatar">{{ user.username[0].upper() }}</div>
+        <div class="freelancer-card__meta">
+          <h3 class="freelancer-card__name">{{ user.username }}</h3>
+          <span class="freelancer-card__badge">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="#8800ff"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+            Freelancer
+          </span>
+        </div>
+      </div>
+ 
+      <!-- Description -->
+      <p class="freelancer-card__desc">
+        {{ user.description if user.description and user.description != 'UNSPECIFIED' else 'No description provided yet.' }}
+      </p>
+ 
+      <!-- Contact + payment info -->
+      <div class="freelancer-card__info">
+ 
+        {% if user.contact_email %}
+        <div class="freelancer-card__info-row">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8800ff" stroke-width="1.8" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span class="freelancer-card__info-label">Email</span>
+          <span class="freelancer-card__info-value">{{ user.contact_email }}</span>
+        </div>
+        {% endif %}
+ 
+        {% if user.contact_phone %}
+        <div class="freelancer-card__info-row">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8800ff" stroke-width="1.8" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.61 19a19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.91 6.91l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span class="freelancer-card__info-label">Phone</span>
+          <span class="freelancer-card__info-value">{{ user.contact_phone }}</span>
+        </div>
+        {% endif %}
+ 
+        {% if user.payment_method %}
+        <div class="freelancer-card__info-row">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8800ff" stroke-width="1.8" stroke-linecap="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          <span class="freelancer-card__info-label">Payment</span>
+          <span class="payment-pill">{{ user.payment_method }}{% if user.payment_details %} · {{ user.payment_details }}{% endif %}</span>
+        </div>
+        {% endif %}
+ 
+        {% if not user.contact_email and not user.contact_phone and not user.payment_method %}
+        <p class="freelancer-card__info-value freelancer-card__info-value--empty">No contact info added yet.</p>
+        {% endif %}
+ 
+      </div>
+    </article>
+    {% else %}
+    <div class="freelancer-empty">
+      <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <p>No freelancers have signed up yet.</p>
+    </div>
+    {% endfor %}
+  </div>
+ 
+</div>
 {% endblock %}

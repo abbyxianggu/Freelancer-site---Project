@@ -1,15 +1,308 @@
 {% extends 'base.html' %}
 
-{% block title %} Landing {% endblock %}
+{% block title %}PITCHD – Hire Great Freelancers, Fast{% endblock %}
 
 {% block main %}
 <style>
-#home_nav{
-  font-weight:bold;
-  border-bottom: 2px solid #8800ff;
-}
+  #home_nav { 
+    font-weight: bold; 
+    border-bottom: 2px solid #8800ff; 
+  }
 </style>
-
-<h1 style="color:#8800ff; text-align:center;">Landing Page!</h1>
-
+<section class="hero" aria-label="Hero">
+  <div class="hero__inner">
+    <div class="hero__content">
+      <h1 class="hero__title">Are you looking for Freelancers?</h1>
+      <p class="hero__subtitle">Hire Great Freelancers, Fast. PITCHD helps you hire elite freelancers at a moment's notice</p>
+      <div class="hero__actions">
+        <button class="hero__hire-btn">Hire a freelancer</button>
+        <div class="hero__search" role="search">
+          <input type="text" placeholder="Search freelance work" aria-label="Search freelance work" />
+          <div class="hero__search-icon-wrap">
+            <img
+              class="icon-bg"
+              src="{{url_for('static', filename='images/searchicon.png')}}"
+              alt="" aria-hidden="true" />
+            <img>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero__visual" aria-hidden="true">
+      <img src="{{ url_for('static', filename='images/illustration.png') }}" alt="Illustration">
+    </div>
+  </div>
+</section>
+ 
+<!-- ── HOW IT WORKS / STEPS ── -->
+<section class="steps" aria-label="How it works">
+  <div class="steps__grid">
+ 
+    <!-- Step 1: Create Account -->
+    <div class="steps__item">
+      <div class="steps__icon-wrap">
+        <img
+          class="steps__icon-circle"
+          src="{{ url_for('static', filename='images/lock.png') }}"
+          alt="" aria-hidden="true"/>
+      </div>
+      <div class="steps__text">
+        <p class="steps__title">Create Account</p>
+        <p class="steps__desc">First you have to create a account here</p>
+      </div>
+    </div>
+ 
+    <!-- Step 2: Search work -->
+    <div class="steps__item">
+      <div class="steps__icon-wrap">
+        <img
+          class="steps__icon-circle"
+          src="{{ url_for('static', filename='images/search.png') }}"
+          alt="" aria-hidden="true"/>
+      </div>
+      <div class="steps__text">
+        <p class="steps__title">Search work</p>
+        <p class="steps__desc" style="max-width:255px;">Search the best freelance work here</p>
+      </div>
+    </div>
+ 
+    <!-- Step 3: Save and apply -->
+    <div class="steps__item">
+      <div class="steps__icon-wrap">
+        <img
+          class="steps__icon-circle"
+          src="{{ url_for('static', filename='images/save.png') }}"
+          alt="" aria-hidden="true"/>
+      </div>
+      <div class="steps__text">
+        <p class="steps__title">Save and apply</p>
+        <p class="steps__desc" style="max-width:255px;">Apply or save and start your work</p>
+      </div>
+    </div>
+ 
+  </div>
+</section>
+ 
+<!-- ── RECENTLY POSTED WORKS ── -->
+<section class="recent" aria-label="Recently posted works">
+  <div class="recent__header">
+    <div>
+      <p class="recent__heading-label">The latest freelance work!</p>
+      <h2 class="recent__heading-title">Recently Posted <span>Works</span></h2>
+    </div>
+    <div class="recent__arrows" aria-label="Navigation arrows">
+      <button class="recent__arrow-btn" aria-label="Previous works">
+        <img src="{{url_for('static', filename ="images/whiteleft.png")}}" alt="Previous" />
+      </button>
+      <button class="recent__arrow-btn" aria-label="Next works">
+        <img src="{{url_for('static', filename ="images/purpright.png")}}" alt="Next" />
+      </button>
+    </div>
+  </div>
+ 
+  <div class="recent__cards">
+ 
+    <!-- Card 1: Logo Design -->
+    <article class="cards">
+      <img class="cards__icon" src="{{url_for('static', filename = 'images/materialUI.png')}}" alt="Material UI logo icon" />
+      <div class="cards__body">
+        <p class="cards__title">Logo Design</p>
+        <p class="cards__desc">Need a professional logo with writing underneath for our jewellery company</p>
+      </div>
+      <div class="cards__footer">
+        <div class="cards__bid">
+          <p class="cards__bid-label">Highest bid</p>
+          <p class="cards__bid-amount">$500</p>
+        </div>
+        <a href="#" class="cards__apply">Apply now</a>
+      </div>
+    </article>
+ 
+    <!-- Card 2: Graphic Design -->
+    <article class="cards">
+      <img class="cards__icon" src="{{url_for ('static', filename= 'images/canva.png')}}" alt="Canva app icon" />
+      <div class="cards__body">
+        <p class="cards__title">Graphic Design</p>
+        <p class="cards__desc">We need a graphic designer with UI/UX skills for our Furniture company</p>
+      </div>
+      <div class="cards__footer">
+        <div class="cards__bid">
+          <p class="cards__bid-label">Highest bid</p>
+          <p class="cards__bid-amount">$500</p>
+        </div>
+        <a href="#" class="cards__apply">Apply now</a>
+      </div>
+    </article>
+ 
+    <!-- Card 3: Need a SEO -->
+    <article class="cards">
+      <img class="cards__icon" src="{{url_for ('static', filename= 'images/SEO.png')}}"alt="Account/SEO icon" />
+      <div class="cards__body">
+        <p class="cards__title">Need a SEO</p>
+        <p class="cards__desc" style="max-width:321px;">Need a SEO for our company who will let our company to a higher level</p>
+      </div>
+      <div class="cards__footer">
+        <div class="cards__bid">
+          <p class="cards__bid-label">Highest bid</p>
+          <p class="cards__bid-amount">$300</p>
+        </div>
+        <a href="#" class="cards__apply">Apply now</a>
+      </div>
+    </article>
+ 
+  </div>
+</section>
+ 
+<!-- ── CATEGORIES ── -->
+<section class="categories" aria-label="Browse categories">
+  <h2>
+    <span class="categories__title">Choose Different</span>
+    <span class="categories__title" style="color: var(--color-purple);"> Categories </span>
+  </h2>
+ 
+  <!-- Row 1 -->
+  <div class="categories__grid">
+    <div class="cat-item">
+      <img class="cat-item__img" src="{{url_for ('static', filename ='images/graphicdesign.png')}}" alt="Graphic and Design category" />
+      <div class="cat-item__overlay" style="background: rgba(0,0,0,0.3);"></div>
+      <span class="cat-item__label">Graphic&amp;Design</span>
+    </div>
+    <div class="cat-item">
+      <img class="cat-item__img" src="{{url_for('static', filename ='images/cartoonani.png')}}" alt="Cartoon Animation category" />
+      <div class="cat-item__overlay" style="background: rgba(0,0,0,0.5);"></div>
+      <span class="cat-item__label">Cartoon Animation</span>
+    </div>
+    <div class="cat-item">
+      <img class="cat-item__img" src="{{url_for('static', filename ='images/illus.png')}}" alt="Illustration category" />
+      <div class="cat-item__overlay" style="background: rgba(0,0,0,0.3);"></div>
+      <span class="cat-item__label">Illustration</span>
+    </div>
+    <div class="cat-item">
+      <img class="cat-item__img" src="{{url_for('static', filename ='images/flyers.png')}}" alt="Flyers and Vouchers category" />
+      <div class="cat-item__overlay" style="background: rgba(0,0,0,0.3);"></div>
+      <span class="cat-item__label">Flyers &amp; Vouchers</span>
+    </div>
+  </div>
+ 
+  <!-- Row 2 -->
+  <div class="categories__grid">
+    <div class="cat-item">
+      <img class="cat-item__img" src="{{url_for('static', filename ='images/logodesign.png')}}" alt="Logo Design category" />
+      <div class="cat-item__overlay" style="background: rgba(0,0,0,0.5);"></div>
+      <span class="cat-item__label">Logo Design</span>
+    </div>
+    <div class="cat-item">
+      <img class="cat-item__img" src="{{url_for('static', filename ='images/socialgraph.png')}}" alt="Social graphics category" />
+      <div class="cat-item__overlay" style="background: rgba(0,0,0,0.5);"></div>
+      <span class="cat-item__label">Social graphics</span>
+    </div>
+    <div class="cat-item">
+      <img class="cat-item__img" src="{{url_for('static', filename ='images/articlewriting.png')}}" alt="Article writing category" />
+      <div class="cat-item__overlay" style="background: rgba(0,0,0,0.4);"></div>
+      <span class="cat-item__label">Article writing</span>
+    </div>
+    <div class="cat-item">
+      <img class="cat-item__img" src="{{url_for('static', filename ='images/videoediting.png')}}" alt="Video Editing category" />
+      <div class="cat-item__overlay" style="background: rgba(0,0,0,0.2);"></div>
+      <span class="cat-item__label">Video Editing</span>
+    </div>
+  </div>
+ 
+  <button class="categories__more">More Categories</button>
+</section>
+ 
+<!-- ── PORTFOLIOS ── -->
+<section class="portfolios" aria-label="Featured portfolios">
+  <div class="portfolios__header">
+    <p class="portfolios__label">Logos, websites, book covers &amp; more!</p>
+    <h2 class="portfolios__title">Checkout The Best <span>Portfolios</span> Here</h2>
+  </div>
+ 
+  <div class="portfolios__cards">
+ 
+    <!-- Portfolio 1 -->
+    <article class="port-card">
+      <div class="port-card__bg"></div>
+      <img
+        class="port-card__image"
+        src="{{url_for('static', filename ='images/port1.png')}}"
+        alt="Bunny.design portfolio preview" />
+      <div class="port-card__info">
+        <div class="port-card__text">
+          <p class="port-card__name">Don Norman</p>
+          <p class="port-card__role">UI/UX Designer</p>
+        </div>
+        <img
+          class="port-card__arrow"
+          src="{{url_for('static', filename ='images/purparrowright.png')}}"
+          alt="View portfolio" />
+      </div>
+    </article>
+ 
+    <!-- Portfolio 2 -->
+    <article class="port-card">
+      <div class="port-card__bg"></div>
+      <img
+        class="port-card__image"
+        src="{{url_for('static', filename ='images/port2.png')}}"
+        alt="Bhaskar Tiwari portfolio preview" />
+      <div class="port-card__info">
+        <div class="port-card__text">
+          <p class="port-card__name">Walter White</p>
+          <p class="port-card__role">Chemistry Tutor</p>
+        </div>
+        <img
+          class="port-card__arrow"
+          src="{{url_for('static', filename ='images/purparrowright.png')}}"
+          alt="View portfolio" />
+      </div>
+    </article>
+ 
+    <!-- Portfolio 3 -->
+    <article class="port-card">
+      <div class="port-card__bg"></div>
+      <img
+        class="port-card__image"
+        src="{{url_for('static', filename ='images/port3.png')}}"
+        alt="Aksara Joshi portfolio preview" />
+      <div class="port-card__info">
+        <div class="port-card__text">
+          <p class="port-card__name">Linus Torvalds</p>
+          <p class="port-card__role">Software Engineer</p>
+        </div>
+        <img
+          class="port-card__arrow"
+          src="{{url_for('static', filename ='images/purparrowright.png')}}"
+          alt="View portfolio" />
+      </div>
+    </article>
+ 
+  </div>
+ 
+  <!-- Pagination dots -->
+  <div class="portfolios__dots" role="tablist" aria-label="Portfolio pages">
+    <div class="dot dot--active" role="tab" aria-selected="true" aria-label="Page 1"></div>
+    <div class="dot dot--inactive" role="tab" aria-selected="false" aria-label="Page 2"></div>
+    <div class="dot dot--inactive" role="tab" aria-selected="false" aria-label="Page 3"></div>
+  </div>
+</section>
+ 
+<!-- ── NEWSLETTER ── -->
+<section class="newsletter" aria-label="Newsletter subscription">
+  <div class="newsletter__header">
+    <h2 class="newsletter__title">Newsletter Subscription</h2>
+    <p class="newsletter__subtitle">Subscribe to our newsletter to get new freelance work and projects</p>
+  </div>
+  <div class="newsletter__form">
+    <div class="newsletter__input-wrap">
+      <input
+        class="newsletter__input"
+        type="email"
+        placeholder="Enter your email address"
+        aria-label="Email address for newsletter" />
+    </div>
+    <button class="newsletter__btn">Subscribe</button>
+  </div>
+</section>
+ 
 {% endblock %}
