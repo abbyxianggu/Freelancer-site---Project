@@ -20,15 +20,9 @@
       <p class="hero__subtitle">Hire Great Freelancers, Fast. PITCHD helps you hire elite freelancers at a moment's notice</p>
       <div class="hero__actions">
         <a class="hero__hire-btn" href="/find_freelancer">Hire a freelancer</a>
-        <div class="hero__search" role="search">
-          <input type="text" placeholder="Search freelance work" aria-label="Search freelance work" />
-          <div class="hero__search-icon-wrap">
-            <img
-              class="icon-bg"
-              src="{{url_for('static', filename='images/searchicon.png')}}"
-              alt="" aria-hidden="true" />
-            <img>
-          </div>
+        <div class="herp_wrap">
+          <a class="hero__hire-btn" href="/find_work">Find Work</a>
+
         </div>
       </div>
     </div>
@@ -106,9 +100,9 @@
       <button class="recent__arrow-btn" aria-label="Previous works">
         <img src="{{url_for('static', filename ="images/whiteleft.png")}}" alt="Previous" />
       </button>
-      <button class="recent__arrow-btn" aria-label="Next works">
+      <a href="/find_work" class="recent__arrow-btn" aria-label="Next works">
         <img src="{{url_for('static', filename ="images/purpright.png")}}" alt="Next" />
-      </button>
+      </a>
     </div>
   </div>
  
