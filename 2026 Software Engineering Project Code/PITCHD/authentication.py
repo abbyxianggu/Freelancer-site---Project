@@ -40,7 +40,7 @@ def signup():
         print(f"EMAIL: {email}")
         print(f"PASSWORD: {password1} {password2}")
         if (len(password1) < 6):
-            flash("password issue", category='error')
+            flash("Password must be longer than 6 characters", category='error')
         elif len(email) < 4:
             flash("Email must be longer than 4 characters", category='error')  
         elif User.query.filter_by(username=username).first():
@@ -74,9 +74,11 @@ def postjob():
     if request.method == "POST":
         name = request.form["name"]
         description = request.form["description"]
+        reward = float(request.form["reward"])
         new_task = Task(
             name = name,
             description = description,
+            reward = reward,
             occupied = False,
             # Follow poster's id
             user_id = current_user.id
@@ -114,8 +116,8 @@ def findwork():
 def delete(task_id):
     Task.query.filter_by(id= int(task_id)).delete()
     db.session.commit()
-flash("Task deleted!", category="success")
-redirect(url_for("page.profile"))
+    flash("Task deleted!", category="success")
+    redirect(url_for("page.profile"))
     
     
     

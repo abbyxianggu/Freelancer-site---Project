@@ -20,6 +20,7 @@ class User(db.Model, UserMixin):
 class Task (db.Model):
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(32))
+    reward = db.Column(db.Float)
     description = db.Column(db.String(1000))
     occupied = db.Column(db.Boolean, default=False, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))

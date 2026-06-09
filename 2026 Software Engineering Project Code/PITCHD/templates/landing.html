@@ -12,7 +12,11 @@
 <section class="hero" aria-label="Hero">
   <div class="hero__inner">
     <div class="hero__content">
+      {%if user.is_authenticated%}
+      <h1 class="hero__title">Welcome to PITCHD!</h1>
+      {%else%}
       <h1 class="hero__title">Are you looking for Freelancers?</h1>
+      {%endif%}
       <p class="hero__subtitle">Hire Great Freelancers, Fast. PITCHD helps you hire elite freelancers at a moment's notice</p>
       <div class="hero__actions">
         <a class="hero__hire-btn" href="/find_freelancer">Hire a freelancer</a>
@@ -48,7 +52,15 @@
       </div>
       <div class="steps__text">
         <p class="steps__title">Create Account</p>
+        {%if user.is_authenticated %}
         <p class="steps__desc">First you have to create a account here</p>
+      
+        {%else%}
+        <p class="steps__desc">First you have to create a account<a style="color:#8800ff;" href="/sign_up"> here</p>
+        </a>
+        {% endif %}
+       
+        
       </div>
     </div>
  
@@ -111,10 +123,10 @@
       </div>
       <div class="cards__footer">
         <div class="cards__bid">
-          <p class="cards__bid-label">Highest bid</p>
-          <p class="cards__bid-amount">$500</p>
+          <p class="cards__bid-label">Reward:</p>
+          <p class="cards__bid-amount">$300</p>
         </div>
-        <a href="#" class="cards__apply">Apply now</a>
+        <a href="/find_work" class="cards__apply">Apply now</a>
       </div>
     </article>
  
@@ -127,10 +139,10 @@
       </div>
       <div class="cards__footer">
         <div class="cards__bid">
-          <p class="cards__bid-label">Highest bid</p>
+          <p class="cards__bid-label">Reward:</p>
           <p class="cards__bid-amount">$500</p>
         </div>
-        <a href="#" class="cards__apply">Apply now</a>
+        <a href="/find_work" class="cards__apply">Apply now</a>
       </div>
     </article>
  
@@ -143,10 +155,10 @@
       </div>
       <div class="cards__footer">
         <div class="cards__bid">
-          <p class="cards__bid-label">Highest bid</p>
-          <p class="cards__bid-amount">$300</p>
+          <p class="cards__bid-label">Reward:</p>
+          <p class="cards__bid-amount">$N/A</p>
         </div>
-        <a href="#" class="cards__apply">Apply now</a>
+        <a href="/find_work" class="cards__apply">Apply now</a>
       </div>
     </article>
  
@@ -156,8 +168,8 @@
 <!-- ── CATEGORIES ── -->
 <section class="categories" aria-label="Browse categories">
   <h2>
-    <span class="categories__title">Choose Different</span>
-    <span class="categories__title" style="color: var(--color-purple);"> Categories </span>
+    <span class="categories__title">Freelancers Across Multiple </span>
+    <span class="categories__title" style="color: var(--color-purple);">Categories </span>
   </h2>
  
   <!-- Row 1 -->
@@ -229,10 +241,10 @@
           <p class="port-card__name">Don Norman</p>
           <p class="port-card__role">UI/UX Designer</p>
         </div>
-        <img
+        <a href="/find_freelancer"> <img
           class="port-card__arrow"
           src="{{url_for('static', filename ='images/purparrowright.png')}}"
-          alt="View portfolio" />
+          alt="View portfolio" /> </a>
       </div>
     </article>
  
@@ -248,10 +260,10 @@
           <p class="port-card__name">Walter White</p>
           <p class="port-card__role">Chemistry Tutor</p>
         </div>
-        <img
+        <a href="/find_freelancer"> <img
           class="port-card__arrow"
           src="{{url_for('static', filename ='images/purparrowright.png')}}"
-          alt="View portfolio" />
+          alt="View portfolio" /> </a>
       </div>
     </article>
  
@@ -267,10 +279,10 @@
           <p class="port-card__name">Linus Torvalds</p>
           <p class="port-card__role">Software Engineer</p>
         </div>
-        <img
+        <a href="/find_freelancer"> <img
           class="port-card__arrow"
           src="{{url_for('static', filename ='images/purparrowright.png')}}"
-          alt="View portfolio" />
+          alt="View portfolio" /> </a>
       </div>
     </article>
  

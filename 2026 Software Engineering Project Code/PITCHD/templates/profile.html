@@ -98,10 +98,13 @@
   <div class="tasks-grid">
     {% for task in tasks_posted %}
     <div class="task-card">
-      <button onclick = "fetch('/delete_task/{{ task.id }}', {method: 'POST', headers}: {'Content-Type': 'application/json'}}">X</button>
+      <div class = "task_delete_wrap">
+        <button class = "task_delete" onclick = "fetch('/delete_task/{{ task.id }}', {method: 'POST', headers}: {'Content-Type': 'application/json'}}" aria-label="Dismiss">x</button>
+      </div>
       <p class="task-card__id">Job #{{ task.id }}</p>
       <p class="task-card__name">{{ task.name }}</p>
       <p class="task-card__desc">{{ task.description }}</p>
+      <p class="task-card__reward">Reward: ${{ task.reward }}</p>
     </div>
     {% else %}
     <p class="tasks-empty">You haven't posted any jobs yet.</p>
@@ -117,6 +120,7 @@
       <p class="task-card__id">Job #{{ task.id }}</p>
       <p class="task-card__name">{{ task.name }}</p>
       <p class="task-card__desc">{{ task.description }}</p>
+      <p class="task-card__reward">Reward: ${{ task.reward }}</p>
     </div>
     {% else %}
     <p class="tasks-empty">You haven't accepted any jobs yet.</p>
