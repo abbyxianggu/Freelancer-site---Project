@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask_login import login_required, current_user
 from .import db
 from .database import User, Task
@@ -12,7 +12,13 @@ def home():
 @login_required
 @page.route('/profile', methods=["GET", "POST"])
 def profile():
-    if request.method == "POST":
+    if request.method == "POST" and "task_id" in request.form:
+        task_id = int(request.form["task_id"])
+        Task.query.filter_by(id= int(task_id)).delete()
+        db.session.commit()
+        flash("Task deleted!", category="success")
+        return redirect(url_for("page.profile"))
+    elif request.method == "POST":
         current_user.description = request.form["description"]
         is_freelancer = "freelancer" in request.form
         current_user.is_freelancer = is_freelancer
@@ -22,6 +28,7 @@ def profile():
         current_user.payment_details = request.form.get("payment_details", "")
         db.session.commit()
         return redirect(url_for("page.profile"))
+    
     tasks_accepted = Task.query.filter_by(worker_id = current_user.id)
     tasks_posted = Task.query.filter_by(user_id = current_user.id)
     return render_template('profile.html', user=current_user, tasks_accepted=tasks_accepted, tasks_posted=tasks_posted)

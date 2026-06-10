@@ -99,7 +99,14 @@
     {% for task in tasks_posted %}
     <div class="task-card">
       <div class = "task_delete_wrap">
-        <button class = "task_delete" onclick = "fetch('/delete_task/{{ task.id }}', {method: 'POST', headers}: {'Content-Type': 'application/json'}}" aria-label="Dismiss">x</button>
+      <form method="POST" action="/profile" >
+        <div class = "task_delete_wrap">
+          <label for="task_delete"></label>
+          <button class = "task_delete" type="submit" name="task_id" value="{{task.id}}"
+           aria-label="Dismiss">x</button>
+        </div>
+        </form>
+
       </div>
       <p class="task-card__id">Job #{{ task.id }}</p>
       <p class="task-card__name">{{ task.name }}</p>
@@ -117,9 +124,13 @@
   <div class="tasks-grid">
     {% for task in tasks_accepted %}
     <div class="task-card">
+      <form method="POST" action="/profile" >
       <div class = "task_delete_wrap">
-        <button class = "task_delete" onclick = "fetch('/delete_task/{{ task.id }}', {method: 'POST', headers}: {'Content-Type': 'application/json'}}" aria-label="Dismiss">x</button>
+        <label for="task_delete"></label>
+        <button class = "task_delete" type="submit" name="task_id" value="{{task.id}}"
+           aria-label="Dismiss">x</button>
       </div>
+      </form>
       <p class="task-card__id">Job #{{ task.id }}</p>
       <p class="task-card__name">{{ task.name }}</p>
       <p class="task-card__desc">{{ task.description }}</p>

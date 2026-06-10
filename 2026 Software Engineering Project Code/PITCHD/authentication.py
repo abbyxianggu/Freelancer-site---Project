@@ -112,12 +112,12 @@ def findwork():
     return render_template('find_work.html', user=current_user, tasks = tasks)
 
 @login_required
-@authentication.route("delete/<task_id>", methods=["POST"])
+@authentication.route("/delete/<task_id>", methods=["POST"])
 def delete(task_id):
     Task.query.filter_by(id= int(task_id)).delete()
     db.session.commit()
     flash("Task deleted!", category="success")
-    redirect(url_for("page.profile"))
-    
+    return redirect(url_for("page.profile"))
+     
     
     
