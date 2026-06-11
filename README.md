@@ -1,2 +1,5 @@
 # Freelancer-site---Project
-Thing for school
+TESTING PASSWORD!
+Username: me
+Email: me@gmail.com
+Password: PASSWORD123
